@@ -32,8 +32,8 @@ public class phone {
     }
 
     public static void main(String[] args) {
-        phone phone1 = new phone("Laci", 64);
-        phone phone2 = new phone("Lacika", 64);
+        phone phone1 = new phone("Nokia", 64);
+        phone phone2 = new phone("Apple", 64);
 
         Scanner scanner = new Scanner(System.in);
 
