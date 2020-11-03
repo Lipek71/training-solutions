@@ -44,5 +44,9 @@ public class phone {
         System.out.println("Kérem az második adatokat:");
         phone2.type = scanner.nextLine();
         phone2.mem = scanner.nextInt();
+
+        System.out.println("Egyes" + phone1.type+ ", " + phone1.mem);
+        System.out.println("Kettes" + phone2.type+ ", " + phone2.mem);
+
     }
 }
