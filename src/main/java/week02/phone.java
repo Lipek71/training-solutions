@@ -1,5 +1,7 @@
 package week02;
 
+import java.util.Scanner;
+
 public class phone {
     private String type;
     private int mem;
@@ -32,5 +34,15 @@ public class phone {
     public static void main(String[] args) {
         phone phone1 = new phone("Laci", 64);
         phone phone2 = new phone("Lacika", 64);
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Kérem az első adatokat:");
+        phone1.type = scanner.nextLine();
+        phone1.mem = scanner.nextInt();
+
+        System.out.println("Kérem az második adatokat:");
+        phone2.type = scanner.nextLine();
+        phone2.mem = scanner.nextInt();
     }
 }
