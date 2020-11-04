@@ -37,16 +37,16 @@ public class phone {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Kérem az első adatokat:");
+        System.out.println("Kérem az első adatokat: ");
         phone1.type = scanner.nextLine();
         phone1.mem = scanner.nextInt();
 
-        System.out.println("Kérem az második adatokat:");
+        System.out.println("Kérem az második adatokat: ");
         phone2.type = scanner.nextLine();
         phone2.mem = scanner.nextInt();
 
-        System.out.println("Egyes" + phone1.type+ ", " + phone1.mem);
-        System.out.println("Kettes" + phone2.type+ ", " + phone2.mem);
+        System.out.println("Egyes" + phone1.type + ", " + phone1.mem);
+        System.out.println("Kettes" + phone2.type + ", " + phone2.mem);
 
     }
 }
