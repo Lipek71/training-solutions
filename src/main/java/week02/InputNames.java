@@ -22,5 +22,10 @@ public class InputNames {
             System.out.println("Az " + j + ". név: " + names[i]);
         }
 
+        int j = 0;
+        for (String names2 : names) {
+            j++;
+            System.out.println("A " + j + ". név a: " + names2);
+        }
     }
 }
