@@ -20,7 +20,6 @@ public class InputNames {
 
             int j = i + 1;
             System.out.println("Az " + j + ". név: " + names[i]);
-
         }
 
     }
