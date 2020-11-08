@@ -11,7 +11,7 @@ public class Controller {
         int width;
         int roomsPieces = 0;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Kérem adja meg, hogy hány tárgyalót szeretne rögzíteni: ");
+        System.out.println("Kérem adja meg, hogy hány darab tárgyalót szeretne rögzíteni: ");
         roomsPieces = scanner.nextInt();
         scanner.nextLine();
         for (int i = 1; i <= roomsPieces; i++) {

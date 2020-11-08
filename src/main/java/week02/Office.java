@@ -34,7 +34,7 @@ public class Office {
 
     public static void printAreas() {
         for (MeetingRoom item : meetingRooms) {
-            System.out.println("Tárgyaló neve " + item.getName() + ", szélessége: " + item.getWidth() + "m hossza: " + item.getLength() + "m területe: " + item.getArea() + "m2.");
+            System.out.println("Tárgyaló neve: " + item.getName() + ", szélessége: " + item.getWidth() + "m hossza: " + item.getLength() + "m területe: " + item.getArea() + "m2.");
         }
     }
 
