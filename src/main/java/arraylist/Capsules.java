@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Capsules {
-    List<String> capsules = new ArrayList<>();
+    private List<String> capsules = new ArrayList<>();
 
     void addLast(String color) {
         capsules.add(capsules.size(), color);
