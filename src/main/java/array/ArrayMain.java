@@ -4,7 +4,6 @@ import static java.lang.StrictMath.pow;
 
 public class ArrayMain {
     public static void main(String[] args) {
-        String[] dayOfWeeks = new String[7];
         String[] getDayOfWeeks = {"hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vasárnap"};
 
         System.out.println(getDayOfWeeks[1]);
