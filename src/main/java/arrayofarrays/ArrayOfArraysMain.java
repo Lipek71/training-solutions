@@ -1,7 +1,5 @@
 package arrayofarrays;
 
-import java.util.Arrays;
-
 public class ArrayOfArraysMain {
     int[][] multiplicationTable(int size) {
         int[][] multiplicator = new int[size][size];
@@ -16,7 +14,7 @@ public class ArrayOfArraysMain {
     public static void main(String[] args) {
         ArrayOfArraysMain arrayOfArraysMain = new ArrayOfArraysMain();
         int size = 0;
-        int[][] multi1 = new int[size][size];
+        int[][] multi1;
         size = 20;
         multi1 = arrayOfArraysMain.multiplicationTable(size);
         for (int i = 1; i <= size; i++) {
