@@ -28,7 +28,7 @@ public class CapsulesBonus {
     }
 
     public static void main(String[] args) {
-        Capsules capsules = new Capsules();
+        CapsulesBonus capsules = new CapsulesBonus();
         List<String> capsules2 = new ArrayList<>();
         capsules.addFirst("piros");
         System.out.println(capsules.getColors());
