@@ -9,10 +9,10 @@ public class NameChanger {
         }
         this.fullNameString = fullNameString;
     }
-    public void changeFirstName(String fistName){
+    public void changeFirstName(String firstName){
         String oldName;
-        oldName=fullNameString.substring(0, fullNameString.indexOf(" ");
-        fullNameString.replaceFirst(oldName,fistName);
+        oldName=fullNameString.substring(0, fullNameString.indexOf(" ") + 1);
+        fullNameString.replaceFirst(oldName,firstName);
     }
 
     public String getFullNameString() {
