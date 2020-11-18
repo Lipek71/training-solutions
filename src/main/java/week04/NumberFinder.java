@@ -11,16 +11,16 @@ public class NumberFinder {
         Scanner scanner = new Scanner(System.in);
         int numberFind=0;
         System.out.println(number);
-        for(int i=0; i < 6; i++){
+        for(int i=1; i < 7; i++){
             System.out.println("Kérek egy számot: ");
             numberFind = scanner.nextInt();
             scanner.nextLine();
             if(number > numberFind){
-                System.out.println("Nagyobbra gondoltam!");
+                System.out.println("Nagyobbra gondoltam! " + i + ". probálkozás volt.");
             } else if(number < numberFind){
-                System.out.println("Kisebbre gondoltam!");
+                System.out.println("Kisebbre gondoltam! " + i + ". probálkozás volt.");
             } else if(number == numberFind){
-                System.out.println("Ügyes vagy kitaláltad!");
+                System.out.println("Ügyes vagy kitaláltad! " + i + ". probálkozás volt.");
                 break;
             }
         }
