@@ -7,7 +7,7 @@ public class NumberFinder {
 
     public static void main(String[] args) {
         Random rnd = new Random();
-        int number=rnd.nextInt(99) +1;
+        int number=rnd.nextInt(100) +1;
         Scanner scanner = new Scanner(System.in);
         int numberFind=0;
         System.out.println(number);
