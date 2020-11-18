@@ -9,7 +9,7 @@ public class NumberFinder {
         Random rnd = new Random();
         int number=rnd.nextInt(99) +1;
         Scanner scanner = new Scanner(System.in);
-        int numberFind;
+        int numberFind=0;
         System.out.println(number);
         for(int i=0; i < 6; i++){
             System.out.println("Kérek egy számot: ");
@@ -24,7 +24,9 @@ public class NumberFinder {
                 break;
             }
         }
-        System.out.println("Sajnos nem találtad ki: " + number + " volt a szám");
+        if (number != numberFind){
+            System.out.println("Sajnos nem találtad ki: " + number + " volt a szám");
+        }
 
     }
 }
