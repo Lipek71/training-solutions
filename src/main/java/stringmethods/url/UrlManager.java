@@ -141,6 +141,7 @@ public class UrlManager {
         System.out.println(urlManager.getPathFromUrl(url));
         System.out.println(urlManager.getQueryFromUrl(url));
         System.out.println(urlManager.hasProperty("format"));
+        System.out.print("    Hexo   World    ".trim().replace("x", "ll").substring(2, 10));
 
     }
 }
