@@ -1,10 +1,11 @@
 package week05.d03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class UserValidator {
-    List<User> userList = Arrays.asList();
+    List<User> userList = new ArrayList<>();
 
 
     public void validate(List<User> userList) {
@@ -18,4 +19,8 @@ public class UserValidator {
         }
     }
 
+    public static void main(String[] args) {
+        UserValidator userValidator = new UserValidator();
+        userValidator.userList.add(new User("Lipka", 30));
+    }
 }
