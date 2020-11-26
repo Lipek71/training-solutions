@@ -20,9 +20,4 @@ public class Product {
         }
         return convertedPrice;
     }
-
-    public static void main(String[] args) {
-        Product product1 = new Product(6000, Currency.HUF);
-        System.out.println(product1.convertPrice(Currency.HUF));
-    }
 }
