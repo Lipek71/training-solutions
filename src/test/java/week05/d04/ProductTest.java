@@ -1,8 +1,6 @@
 package week05.d04;
 
 import org.junit.jupiter.api.Test;
-import week05.d03.User;
-import week05.d03.UserValidator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
