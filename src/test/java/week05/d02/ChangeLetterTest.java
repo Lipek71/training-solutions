@@ -1,6 +1,7 @@
-package week05d02;
+package week05.d02;
 
 import org.junit.jupiter.api.Test;
+import week05.d02.ChangeLetter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
