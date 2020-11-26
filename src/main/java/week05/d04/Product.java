@@ -11,6 +11,9 @@ public class Product {
 
     public double convertPrice(Currency currency) {
         double convertedPrice = 0.0;
+        if (this.currency ==null){
+            throw new IllegalArgumentException("type mismatch!");
+        }
         if (this.currency == currency) {
             convertedPrice = this.price;
         } else if (this.currency == Currency.USD) {
