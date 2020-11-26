@@ -9,7 +9,13 @@ public class UserValidator {
 
 
     public void validate(List<User> userList) {
+        if (userList == null){
+            throw new IllegalArgumentException("UserList is null!");
+        }
         for (User itemUser : userList) {
+            if(itemUser == null){
+                throw new IllegalArgumentException("User is null!");
+            }
             if (itemUser.getUserName() == null || itemUser.getUserName().isBlank()) {
                 throw new IllegalArgumentException("User name is empty, or null!");
             }
@@ -21,6 +27,7 @@ public class UserValidator {
 
     public static void main(String[] args) {
         UserValidator userValidator = new UserValidator();
-        userValidator.userList.add(new User("Lipka", 30));
+        userValidator.userList.add(new User("Lipka", 140));
+        userValidator.validate(userValidator.userList);
     }
 }
