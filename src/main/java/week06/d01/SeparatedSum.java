@@ -23,7 +23,7 @@ public class SeparatedSum {
         return sums;
     }
 
-    public double[] sum2(String s) {
+    public String sum2(String s) {
         double[] sums = new double[2];
         double sumPositive = 0;
         double sumNegative = 0;
@@ -36,9 +36,8 @@ public class SeparatedSum {
                 sumNegative += Double.parseDouble(number);
             }
         }
-        sums[0]=sumPositive;
-        sums[1]=sumNegative;
-        return sums;
+
+        return new SeparatedSumBack(sumPositive, sumNegative).toString();
     }
 
     public String sum3(String s) {
