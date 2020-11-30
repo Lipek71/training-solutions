@@ -36,8 +36,8 @@ public class SeparatedSum {
                 sumNegative += Double.parseDouble(number);
             }
         }
-
-        return new SeparatedSumBack(sumPositive, sumNegative);
+        SeparatedSumBack result = new SeparatedSumBack(sumPositive, sumNegative);
+        return result;
     }
 
     public String sum3(String s) {
@@ -60,7 +60,9 @@ public class SeparatedSum {
     public static void main(String[] args) {
         SeparatedSum separatedSum = new SeparatedSum();
         System.out.println(separatedSum.sum("4;-3"));
-        System.out.println(separatedSum.sum2("4;-3"));
+        SeparatedSumBack result = new SeparatedSumBack(0,0);
+        separatedSum.sum2("4;-3");
+        System.out.println(result.getSumNegative());
         System.out.println(separatedSum.sum3("4;-3"));
     }
 }
