@@ -9,6 +9,14 @@ public class SeparatedSumBack {
         this.sumNegative = sumNegative;
     }
 
+    public double getSumPositive() {
+        return sumPositive;
+    }
+
+    public double getSumNegative() {
+        return sumNegative;
+    }
+
     @Override
     public String toString() {
         return "SeparatedSumBack{" +

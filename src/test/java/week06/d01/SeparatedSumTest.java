@@ -16,7 +16,7 @@ public class SeparatedSumTest {
 
     @Test
     public void SumTest2() {
-        assertEquals("SeparatedSumBack{sumPositive=18.17, sumNegative=-11.56}", new SeparatedSum().sum2("3,2;4,8;-3,6;-4,4;5,5;-3,56;4,67"));
+        assertEquals("SeparatedSumBack{sumPositive=18.17, sumNegative=-11.56}", new SeparatedSum().sum2("3,2;4,8;-3,6;-4,4;5,5;-3,56;4,67").toString());
     }
 
     @Test
