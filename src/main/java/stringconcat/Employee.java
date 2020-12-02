@@ -1,4 +1,4 @@
-package employee;
+package stringconcat;
 
 public class Employee {
     private String name;
