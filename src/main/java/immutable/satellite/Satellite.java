@@ -1,8 +1,5 @@
 package immutable.satellite;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Satellite {
     private CelestialCoordinates celestialCoordinates;
     private String registerIdent;
@@ -12,7 +9,9 @@ public class Satellite {
 
     public Satellite(CelestialCoordinates celestialCoordinates, String registerIdent) {
         this.celestialCoordinates = celestialCoordinates;
-        if(!isEmpty(registerIdent)){
+        if (registerIdent == null || registerIdent.isBlank()) {
+            throw new IllegalArgumentException("Register ident must not be empty!");
+        } else {
             this.registerIdent = registerIdent;
             celestialCordinatesModifyX = celestialCoordinates.getX();
             celestialCordinatesModifyY = celestialCoordinates.getY();
@@ -24,35 +23,14 @@ public class Satellite {
         return registerIdent;
     }
 
-    public int getCelestialCordinatesModifyX() {
-        return celestialCordinatesModifyX;
+    public void modifyDestination(CelestialCoordinates diff) {
+        this.celestialCordinatesModifyX = celestialCoordinates.getX() + diff.getX();
+        this.celestialCordinatesModifyY = celestialCoordinates.getY() + diff.getY();
+        this.celestialCordinatesModifyZ = celestialCoordinates.getZ() + diff.getZ();
     }
 
-    public int getCelestialCordinatesModifyY() {
-        return celestialCordinatesModifyY;
-    }
-
-    public int getCelestialCordinatesModifyZ() {
-        return celestialCordinatesModifyZ;
-    }
-
-    public void modifyDestination(CelestialCoordinates diff){
-        celestialCordinatesModifyX += diff.getX();
-        celestialCordinatesModifyY += diff.getY();
-        celestialCordinatesModifyZ += diff.getZ();
-
-
-
-    }
-    public String toString(){
-        return getRegisterIdent() + ": CelestialCoordinates: x=" +  celestialCordinatesModifyX + ", y=" + celestialCordinatesModifyY
+    public String toString() {
+        return getRegisterIdent() + ": CelestialCoordinates: x=" + celestialCordinatesModifyX + ", y=" + celestialCordinatesModifyY
                 + ", z=" + celestialCordinatesModifyZ;
-    }
-
-    private boolean isEmpty(String str){
-        if(str==null || str.isBlank()){
-            throw new IllegalArgumentException("Register ident must not be empty!");
-        }
-        return true;
     }
 }
