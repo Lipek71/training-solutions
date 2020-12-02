@@ -5,8 +5,6 @@ public class CelestialCoordinates {
     private final int y;
     private final int z;
 
-
-
     public CelestialCoordinates(int x, int y, int z) {
         this.x = x;
         this.y = y;
