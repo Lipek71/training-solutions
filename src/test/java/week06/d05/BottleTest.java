@@ -1,7 +1,6 @@
 package week06.d05;
 
 import org.junit.jupiter.api.Test;
-import week06.d04.ShoppingCart;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
