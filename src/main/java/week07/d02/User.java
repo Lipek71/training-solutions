@@ -14,4 +14,8 @@ public interface User {
     static User of(String userName, String firstName, String lastName) {
         return new UserImpl(userName, firstName, lastName);
     }
+    static User of(String firstName, String lastName) {
+        return new UserImpl("anonym", firstName, lastName);
+    }
+
 }

@@ -26,5 +26,7 @@ public class UserImpl implements User {
         return lastName;
     }
 
-
+    public static void main(String[] args) {
+        System.out.println(User.of("li ", "Lá ", "Li").toString());
+    }
 }
