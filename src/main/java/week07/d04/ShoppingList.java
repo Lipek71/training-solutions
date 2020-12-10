@@ -23,6 +23,6 @@ public class ShoppingList {
 
     public static void main(String[] args) {
         ShoppingList shoppingList = new ShoppingList();
-        System.out.println(shoppingList.calculateSum("src/main/resources/goods.csv"));
+        System.out.println(shoppingList.calculateSum("src/main/java/week07/d04/Goods.csv"));
     }
 }
