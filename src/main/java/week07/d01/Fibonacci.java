@@ -6,9 +6,9 @@ public class Fibonacci {
     long fibonaccin = 0;
 
     public long fib1(int n) {
-        long fibonacci10;
+        long fibonacci10 = 0;
         long fibonacci11 = 1;
-        long fibonacci1n;
+        long fibonacci1n = 0;
         if (n == 0) {
             return 0;
         }
@@ -25,10 +25,10 @@ public class Fibonacci {
     }
 
     public long fib2(int n) {
-        if (n <= 1){
+        if (n <= 1) {
             return n;
         }
-        return fib2(n-1) + fib2(n-2);
+        return fib2(n - 1) + fib2(n - 2);
     }
 
     public static void main(String[] args) {
