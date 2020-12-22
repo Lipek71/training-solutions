@@ -7,15 +7,30 @@ public class FibCalculator {
         }
         return fib(n - 1) + fib(n - 2);
     }
-    public long sumEvens(int bound){
-        int sumEvensSmallThanBound=0;
-        long fibNumber=0;
-        int count=0;
-        while(fibNumber <= bound){
+
+    public long sumEvens(int bound) {
+        int sumEvensSmallThanBound = 0;
+        long fibNumber = 0;
+        int count = 0;
+        while (fibNumber <= bound) {
             fibNumber = fib(count);
-            if(fibNumber % 2 ==0){
-                sumEvensSmallThanBound+=fibNumber;
+            if (fibNumber % 2 == 0) {
+                sumEvensSmallThanBound += fibNumber;
             }
+            count++;
+        }
+        return sumEvensSmallThanBound;
+    }
+
+    public long sumEvens2(int bound) {
+        int sumEvensSmallThanBound = 0;
+        long fibNumber = 0;
+        int count = 0;
+        while (fibNumber <= bound) {
+            if (fibNumber % 2 == 0) {
+                sumEvensSmallThanBound += fibNumber;
+            }
+            fibNumber = fib(count);
             count++;
         }
         return sumEvensSmallThanBound;
