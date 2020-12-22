@@ -9,12 +9,12 @@ class FibCalculatorTest {
     @Test
     void test1SumEvents() {
         FibCalculator fibCalculator = new FibCalculator();
-        assertEquals(10, fibCalculator.sumEvents(10));
+        assertEquals(10, fibCalculator.sumEvens(10));
     }
 
     @Test
     void Test2Sumvents() {
         FibCalculator fibCalculator = new FibCalculator();
-        assertEquals(44, fibCalculator.sumEvents(35));
+        assertEquals(44, fibCalculator.sumEvens(35));
     }
 }

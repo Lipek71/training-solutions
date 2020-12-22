@@ -7,22 +7,22 @@ public class FibCalculator {
         }
         return fib(n - 1) + fib(n - 2);
     }
-    public long sumEvents(int bound){
-        int sumEventSmallThanBound=0;
+    public long sumEvens(int bound){
+        int sumEvensSmallThanBound=0;
         long fibNumber=0;
         int count=0;
         while(fibNumber <= bound){
             fibNumber = fib(count);
-            if(fib(count) % 2 ==0){
-                sumEventSmallThanBound+=fib(count);
+            if(fibNumber % 2 ==0){
+                sumEvensSmallThanBound+=fibNumber;
             }
             count++;
         }
-        return sumEventSmallThanBound;
+        return sumEvensSmallThanBound;
     }
 
     public static void main(String[] args) {
         FibCalculator fibCalculator = new FibCalculator();
-        System.out.println(fibCalculator.sumEvents(100));
+        System.out.println(fibCalculator.sumEvens(35));
     }
 }

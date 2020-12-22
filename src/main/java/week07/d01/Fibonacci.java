@@ -34,11 +34,9 @@ public class Fibonacci {
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci();
         for (int i = 0; i < 11; i++) {
-            System.out.println("Az " + i + ". Fibonacci szám: " + fibonacci.fib1(i));
-        }
-        for (int i = 0; i < 11; i++) {
             System.out.println("Az " + i + ". Fibonacci szám: " + fibonacci.fib2(i));
         }
+        System.out.println(fibonacci.fib2(30));
     }
 }
 
