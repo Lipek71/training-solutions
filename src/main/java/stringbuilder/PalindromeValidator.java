@@ -10,4 +10,8 @@ public class PalindromeValidator {
         return wordForward.toString().equals(wordForward.reverse().toString());
     }
 
+    public static void main(String[] args) {
+        PalindromeValidator palindromeValidator = new PalindromeValidator();
+        System.out.println(palindromeValidator.isPalindrome("amma"));
+    }
 }
