@@ -19,9 +19,6 @@ public class Cheese {
 
     @Override
     public String toString() {
-        return "Cheese{" +
-                "name='" + name + '\'' +
-                ", lactoz=" + lactoz +
-                '}';
+        return getName() + "," + getLactoz();
     }
 }
