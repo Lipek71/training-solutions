@@ -17,7 +17,10 @@ class TravelTest {
 
     @Test
     void getStopWithMaxTest() throws IOException {
-        Path file = Path.of("src/main/resources/week10/d02/utasadat.txt");
+        //Path file = Path.of("src/main/resources/week10/d02/utasadat.txt");
+        //Path file = Path.of("src","main","resources","week10","d02","utasadat.txt");
+        Path file = Path.of("src","main","resources","week10","d02").resolve("utasadat.txt");
+
         InputStream inputStream = Files.newInputStream(file);
         Travel travel = new Travel();
         assertEquals(10, travel.getStopWithMax(inputStream));
