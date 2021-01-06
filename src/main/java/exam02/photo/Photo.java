@@ -6,6 +6,7 @@ public class Photo implements Qualified {
 
     public Photo(String name) {
         this.name = name;
+        this.quality = Quality.NO_STAR;
     }
 
     public Photo(String name, Quality quality) {
@@ -23,6 +24,6 @@ public class Photo implements Qualified {
 
     @Override
     public void setQuality(Quality quality) {
-
+        this.quality = quality;
     }
 }

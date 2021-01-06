@@ -17,19 +17,29 @@ public class PhotoCollection {
     }
 
     public void starPhoto(String photoName, Quality quality) {
-        try {
+
+       try {
             for (Photo photo : photos) {
                 if (photo.getName().equals(photoName)) {
                     photo.setQuality(quality);
                 }
             }
         } catch (PhotoNotFoundException e){
-            throw new PhotoNotFoundException("Not find a phot", e);
+            throw new IllegalArgumentException("w", e);
         }
     }
 
     public int numberOfStars() {
-
-        return 0;
+        int numberOfPhotoStar = 0;
+        for (Photo photo : photos) {
+            if (photo.getQuality() == Quality.ONE_STAR) {
+                numberOfPhotoStar++;
+            }
+            if (photo.getQuality() == Quality.TWO_STAR) {
+                numberOfPhotoStar++;
+                numberOfPhotoStar++;
+            }
+        }
+        return numberOfPhotoStar;
     }
 }
