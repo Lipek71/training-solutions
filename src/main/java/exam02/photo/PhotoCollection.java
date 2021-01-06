@@ -17,15 +17,15 @@ public class PhotoCollection {
     }
 
     public void starPhoto(String photoName, Quality quality) {
-
-       try {
-            for (Photo photo : photos) {
-                if (photo.getName().equals(photoName)) {
-                    photo.setQuality(quality);
-                }
+        boolean found = false;
+        for (Photo photo : photos) {
+            if (photo.getName().equals(photoName)) {
+                photo.setQuality(quality);
+                found = true;
             }
-        } catch (PhotoNotFoundException e){
-            throw new IllegalArgumentException("w", e);
+       }
+        if (!found) {
+            throw new PhotoNotFoundException("Photo not found!");
         }
     }
 
@@ -41,5 +41,12 @@ public class PhotoCollection {
             }
         }
         return numberOfPhotoStar;
+    }
+
+    public static void main(String[] args) {
+        PhotoCollection photoCollection = new PhotoCollection();
+        photoCollection.addPhoto("a.jpg", "b.jpg", "c.jpg");
+        photoCollection.starPhoto("a.jpg", Quality.TWO_STAR);
+        photoCollection.starPhoto("a.jpg", Quality.ONE_STAR);
     }
 }
