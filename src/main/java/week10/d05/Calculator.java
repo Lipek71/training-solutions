@@ -1,5 +1,7 @@
 package week10.d05;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calculator {
@@ -38,20 +40,48 @@ public class Calculator {
         return sortedArr;
     }
 
-    public static void main(String[] args) {
-        int count;
+    public int[] arrayRequest() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hány elemű a tömb: ");
-        count = scanner.nextInt();
-        scanner.nextLine();
-        int[] arr = new int[count];
-        for (int i = 0; i < count; i++) {
-            System.out.println("Kérem az " + i + 1 + ". számot:");
-            arr[i] = scanner.nextInt();
-            scanner.nextLine();
+
+        List<Integer> numbers = new ArrayList<>();
+        String s = scanner.nextLine();
+        int number;
+        while (!s.isBlank()) {
+            /*try {
+                numbers.add(Integer.parseInt(s));
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please a number!");
+            }*/
+            number=validator(s);
+            numbers.add(number);
+            s = scanner.nextLine();
         }
+        int[] data = new int[numbers.size()];
+        for (int i = 0; i < numbers.size(); i++) {
+            data[i] = numbers.get(i);
+        }
+        return data;
+    }
+
+    public int validator(String str) {
+        int number;
+        Scanner scanner = new Scanner(System.in);
+        String s;
+        try {
+            number = Integer.parseInt(str);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Please a number!");
+            s = scanner.nextLine();
+            number = validator(s);
+        }
+        return number;
+    }
+
+    public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        CalculatorResult calculatorResult = calculator.findMinMaxSum(arr);
+        System.out.println("Kérem a számokat: ");
+        int[] data = calculator.arrayRequest();
+        CalculatorResult calculatorResult = calculator.findMinMaxSum(data);
         System.out.println("Min: " + calculatorResult.getMin() + " Max: " + calculatorResult.getMax());
     }
 }
