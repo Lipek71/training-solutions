@@ -1,5 +1,7 @@
 package activity;
 
+import java.io.*;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,4 +84,27 @@ public class Track {
         return Math.abs(findMaximumCoordinate().getLatitude() - findMinimumCoordinate().getLatitude()) * (findMaximumCoordinate().getLongitude() - findMinimumCoordinate().getLongitude());
     }
 
+    public void loadFromGpx(InputStream inputStream){
+        Coordinate coordinate = new Coordinate(0.0, 0.0);
+        //Path file = Path.of("src/test/resources/track.gpx");
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream)) ){
+            String line ;
+
+            while ((line = bufferedReader.readLine()) != null){
+                if(line.contains("<trkpt lat=")){
+                    //System.out.println(line.substring(15,25) + " " + line.substring(32,42));
+                    //System.out.println(line);
+                    coordinate = new Coordinate(Double.parseDouble(line.substring(15,25)), Double.parseDouble(line.substring(32,42)));
+                }
+                if(line.contains("<ele>")){
+                    //System.out.println(line.substring(8,13));
+                    //System.out.println(line);
+                    trackPoints.add(new TrackPoint(coordinate, Double.parseDouble(line.substring(8,13)) ));
+                }
+
+            }
+        } catch (IOException ioe){
+            throw new IllegalStateException("Can't open the file!");
+        }
+    }
 }
