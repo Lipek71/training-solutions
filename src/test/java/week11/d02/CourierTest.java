@@ -35,7 +35,7 @@ class CourierTest {
 
         courier.fileReading(is);
 
-        assertEquals(3, courier.holidays().size());
+        assertEquals(2, courier.holidays().size());
     }
 
     @Test
@@ -45,6 +45,12 @@ class CourierTest {
 
         courier.fileReading(is);
 
-        assertEquals(12, courier.distanceOfDays());
+        assertEquals(65, courier.distanceOfDays()[0]);
+        assertEquals(0, courier.distanceOfDays()[1]);
+        assertEquals(69, courier.distanceOfDays()[2]);
+        assertEquals(62, courier.distanceOfDays()[3]);
+        assertEquals(74, courier.distanceOfDays()[4]);
+        assertEquals(0, courier.distanceOfDays()[5]);
+        assertEquals(75, courier.distanceOfDays()[6]);
     }
 }

@@ -1,5 +1,4 @@
 package week11.d02;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,7 +47,7 @@ public class Courier {
             Ride ride = value.next();
 
             if (holidays.contains(ride.getDay())) {
-                holidays.remove(ride.getDay());
+                holidays.remove((Integer)(ride.getDay()));
             }
         }
         return holidays;
@@ -59,7 +58,7 @@ public class Courier {
         Iterator<Ride> value = rides.iterator();
         while (value.hasNext()) {
             Ride ride = value.next();
-            distances[ride.getDay() -1] += ride.getDistance();
+            distances[ride.getDay() - 1] += ride.getDistance();
         }
         return distances;
     }
