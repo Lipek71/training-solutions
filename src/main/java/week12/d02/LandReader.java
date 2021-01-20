@@ -5,6 +5,8 @@ import org.yaml.snakeyaml.reader.StreamReader;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -58,6 +60,7 @@ public class LandReader {
 
     public void printLandOddSet(String file) {
         Path path = Path.of(file);
+        List<Land> landList = new ArrayList<>();
         try (BufferedWriter bw = Files.newBufferedWriter(path)) {
             String line;
             for(Land land : landOddSet){
