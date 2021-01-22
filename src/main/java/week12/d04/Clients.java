@@ -11,7 +11,7 @@ public class Clients {
 
     public Client findByRegNumber(String regNumber){
         if (!clientMap.containsKey(regNumber)){
-            throw new IllegalArgumentException("Not find Clients" + regNumber);
+            throw new IllegalArgumentException("Not find Clients: " + regNumber);
         }
         return clientMap.get(regNumber);
     }
