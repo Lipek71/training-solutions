@@ -1,5 +1,6 @@
 package week12.d05;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
@@ -12,7 +13,7 @@ public class Employee {
         this.age = age;
         this.skillLevel = skillLevel;
         this.name = name;
-        this.skills = skills;
+        this.skills = new ArrayList<>(skills);
     }
 
     public int getAge() {
@@ -28,6 +29,6 @@ public class Employee {
     }
 
     public List<String> getSkills() {
-        return skills;
+        return new ArrayList(skills);
     }
 }
