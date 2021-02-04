@@ -1,3 +1,5 @@
+package _teszt;
+
 import java.util.*;
 
 public class Teszt {
