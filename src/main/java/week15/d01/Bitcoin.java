@@ -7,23 +7,23 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class Bitcoin {
-    private List<Integer> exchange = new ArrayList<>();
-    private List<DailyExchange> dailyExchanges = new ArrayList<>();
+    /*private List<Integer> exchange = new ArrayList<>();
+    private List<DailyExchange> dailyExchanges = new ArrayList<>();*/
     private Map<Integer, Integer> exchangeMap = new HashMap<>();
 
-    public List<Integer> getExchange() {
+    /*public List<Integer> getExchange() {
         return exchange;
     }
 
     public List<DailyExchange> getDailyExchanges() {
         return dailyExchanges;
-    }
+    }*/
 
     public Map<Integer, Integer> getExchangeMap() {
         return exchangeMap;
     }
 
-    public void readFile(String filePath) {
+    /*public void readFile(String filePath) {
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(
                 Bitcoin.class.getResourceAsStream(filePath))
         )) {
@@ -51,7 +51,7 @@ public class Bitcoin {
         } catch (IOException ioe) {
             throw new IllegalStateException("Can't open the file!", ioe);
         }
-    }
+    }*/
 
     public void readFileMap(String filePath) {
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(
@@ -69,7 +69,7 @@ public class Bitcoin {
         }
     }
 
-    public MinMaxDay bitcoinBestBuying(List<Integer> bitcoinExchange) {
+    /*public MinMaxDay bitcoinBestBuying(List<Integer> bitcoinExchange) {
         IntSummaryStatistics bitcoinStat = bitcoinExchange.stream().mapToInt(bE -> bE).summaryStatistics();
         return new MinMaxDay(bitcoinStat.getMin(), bitcoinStat.getMax());
     }
@@ -77,7 +77,7 @@ public class Bitcoin {
     public MinMaxDay bitcoinBestBuyingDailyExchange(List<DailyExchange> bitcoinExchange) {
         IntSummaryStatistics bitcoinStat = bitcoinExchange.stream().mapToInt(bE -> bE.getDay()).summaryStatistics();
         return new MinMaxDay(bitcoinStat.getMin(), bitcoinStat.getMax());
-    }
+    }*/
 
     public MinMaxDay bitcoinBestBuyingMap(Map<Integer, Integer> bitcoinExchange) {
         IntSummaryStatistics bitcoinStat = bitcoinExchange.keySet().stream().mapToInt(bE -> bE).summaryStatistics();
@@ -88,13 +88,13 @@ public class Bitcoin {
 
     public static void main(String[] args) {
         Bitcoin bitcoin = new Bitcoin();
-        bitcoin.readFile("/bitcoin.txt");
+        /*bitcoin.readFile("/bitcoin.txt");
         System.out.println(bitcoin.getExchange());
         System.out.println(bitcoin.bitcoinBestBuying(bitcoin.getExchange()));
 
         bitcoin.readFileDailyExchange("/bitcoin.txt");
         System.out.println(bitcoin.getDailyExchanges());
-        System.out.println(bitcoin.bitcoinBestBuyingDailyExchange(bitcoin.getDailyExchanges()));
+        System.out.println(bitcoin.bitcoinBestBuyingDailyExchange(bitcoin.getDailyExchanges()));*/
 
         bitcoin.readFileMap("/bitcoin.txt");
         System.out.println(bitcoin.exchangeMap);
