@@ -20,6 +20,6 @@ class BitcoinTest {
     void bitcoinBestBuyingMapTest() {
         Bitcoin bitcoin = new Bitcoin();
         bitcoin.readFileMap("/bitcoin.txt");
-        assertEquals("A(z) 4. napon érdemes vásárolni, a(z) 27. napon érdemes eladni!", bitcoin.bitcoinBestBuyingMap(bitcoin.getExchangeMap()).toString());
+        assertEquals("A(z) 4. napon érdemes vásárolni, a(z) 27. napon érdemes eladni, a nyereség: 20134", bitcoin.bitcoinBestBuyingMap(bitcoin.getExchangeMap()).toString());
     }
 }

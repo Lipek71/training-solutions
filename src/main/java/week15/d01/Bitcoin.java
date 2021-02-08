@@ -81,9 +81,8 @@ public class Bitcoin {
 
     public MinMaxDay bitcoinBestBuyingMap(Map<Integer, Integer> bitcoinExchange) {
         IntSummaryStatistics bitcoinStat = bitcoinExchange.keySet().stream().mapToInt(bE -> bE).summaryStatistics();
-        return new MinMaxDay(getExchangeMap().get(bitcoinStat.getMin()), getExchangeMap().get(bitcoinStat.getMax()));
+        return new MinMaxDay(getExchangeMap().get(bitcoinStat.getMin()), getExchangeMap().get(bitcoinStat.getMax()), bitcoinStat.getMax() - bitcoinStat.getMin());
     }
-
 
 
     public static void main(String[] args) {
