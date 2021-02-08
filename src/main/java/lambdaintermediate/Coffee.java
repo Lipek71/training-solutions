@@ -1,4 +1,4 @@
-package lambdacollectors;
+package lambdaintermediate;
 
 import java.math.BigDecimal;
 

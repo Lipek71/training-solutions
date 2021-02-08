@@ -1,5 +1,9 @@
 package lambdacollectors;
 
+import lambdaintermediate.Coffee;
+import lambdaintermediate.CoffeeOrder;
+import lambdaintermediate.CoffeeType;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;

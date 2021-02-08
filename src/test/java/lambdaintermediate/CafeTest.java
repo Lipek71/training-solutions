@@ -1,26 +1,24 @@
-package lambdacollectors;
+package lambdaintermediate;
 
-
-import lambdaintermediate.Coffee;
-import lambdaintermediate.CoffeeOrder;
-import lambdaintermediate.CoffeeType;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class CafeTest {
+
     private List<CoffeeOrder> orders = new ArrayList<>();
 
     @BeforeEach
@@ -67,19 +65,47 @@ public class CafeTest {
     }
 
     @Test
-    public void getCountByCoffeeType() {
+    public void getTotalIncome() {
         Cafe cafe = new Cafe(orders);
 
-        Map<CoffeeType, Long> map = cafe.getCountByCoffeeType();
-
-        assertEquals(7, map.size());
-        assertEquals(7L, map.get(CoffeeType.ESPRESSO));
+        assertEquals(new BigDecimal(161.8).setScale(2, RoundingMode.HALF_UP), cafe.getTotalIncome());
     }
 
     @Test
-    public void getAverageOrder() {
+    public void getTotalIncomeForADay() {
+        Cafe cafe = new Cafe(orders);
+        LocalDate localDate = LocalDate.of(2018, 5, 4);
+
+        assertEquals(new BigDecimal(24.8).setScale(2, RoundingMode.HALF_UP), cafe.getTotalIncome(localDate));
+    }
+
+    @Test
+    public void getNumberOfCoffee() {
         Cafe cafe = new Cafe(orders);
 
-        assertEquals(2.1667, Math.round(cafe.getAverageOrder() * 10000) / 10000.0);
+        assertEquals(7L, cafe.getNumberOfCoffee(CoffeeType.ESPRESSO));
+    }
+
+    @Test
+    public void getOrdersAfter() {
+        Cafe cafe = new Cafe(orders);
+        LocalDate localDate = LocalDate.of(2018, 5, 4);
+        LocalTime localTime = LocalTime.of(10, 45);
+        LocalDateTime dateTime = LocalDateTime.of(localDate, localTime);
+
+        assertEquals(3, cafe.getOrdersAfter(dateTime).size());
+    }
+
+    @Test
+    public void getFirstFiveOrder() {
+        Cafe cafe = new Cafe(orders);
+        LocalDate localDate = LocalDate.of(2018, 5, 3);
+        LocalTime localTime = LocalTime.of(9, 19);
+
+        List<CoffeeOrder> firstFiveOrder = cafe.getFirstFiveOrder(localDate);
+
+        assertEquals(5, firstFiveOrder.size());
+        assertEquals(LocalDateTime.of(localDate, localTime), firstFiveOrder.get(0).getDateTime());
+        assertEquals(2, firstFiveOrder.get(0).getCoffeeList().size());
     }
 }
