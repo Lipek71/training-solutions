@@ -1,7 +1,0 @@
-package exeptionclass.bank2;
-
-public class LowBalanceBankOperationException extends InvalidBankOperationException{
-    public LowBalanceBankOperationException(String message) {
-        super(message, ErrorCode.LOW_BALANCE);
-    }
-}
