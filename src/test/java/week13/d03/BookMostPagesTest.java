@@ -25,6 +25,6 @@ class BookMostPagesTest {
         books.add(book5);
 
         BookMostPages bookMostPages = new BookMostPages();
-        System.out.println(bookMostPages.getMostPagesBook(books));
+        assertEquals("Könyv{Szerző: Victor Hugo, cím: Monte Cristo Grófja, oldalak száma: 1346}", bookMostPages.getMostPagesBook(books).toString());
     }
 }
