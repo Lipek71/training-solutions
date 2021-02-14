@@ -10,8 +10,8 @@ import java.util.List;
 
 public class StringToBytes {
 
-    public void writeAsBytes(List<String> words, Path path){
-        try (OutputStream os = new BufferedOutputStream(Files.newOutputStream(path))){
+    public void writeAsBytes(List<String> words, Path file){
+        try (OutputStream os = new BufferedOutputStream(Files.newOutputStream(file))){
             for (String str: words){
                 if(!str.startsWith("_")){
                     os.write(str.getBytes());
