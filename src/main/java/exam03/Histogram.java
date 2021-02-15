@@ -8,8 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Histogram {
-    StringBuilder output;
+    StringBuilder output = new StringBuilder();
     public String createHistogram(BufferedReader reader) {
+        System.out.println("ide");
         try (BufferedReader bf = reader) {
             String line;
             while ((line = bf.readLine()) != null) {
@@ -24,4 +25,24 @@ public class Histogram {
         return output.toString();
     }
 
+    public static void main(String[] args) throws IOException {
+        try (BufferedReader bf = Files.newBufferedReader(Path.of("src/main/resources/histogram.txt"))){
+            String line = "";
+            StringBuilder output = new StringBuilder();
+            while ((line = bf.readLine()) != null){
+                System.out.println(line);
+                for (int i =0; i < Integer.parseInt(line); i++){
+                    output.append("*");
+                }
+                output.append("\n");
+            }
+            System.out.println(output);
+        } catch (IOException ioe){
+            throw new IllegalStateException("Can't open the file!", ioe);
+        }
+
+        Histogram histogram = new Histogram();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(Histogram.class.getResourceAsStream("histogram.txt")));
+        histogram.createHistogram(reader);
+    }
 }
