@@ -48,17 +48,17 @@ public class Cruise {
 
     public Passenger findPassengerByName(String name) {
         Passenger foundPassenger = null;
-        for (Passenger passenger : passengers){
-            if(passenger.getName().toLowerCase().equals(name.toLowerCase())){
+        for (Passenger passenger : passengers) {
+            if (passenger.getName().toLowerCase().equals(name.toLowerCase())) {
                 foundPassenger = passenger;
             }
         }
         return foundPassenger;
     }
 
-    public List<String> getPassengerNamesOrdered(){
+    public List<String> getPassengerNamesOrdered() {
         List<String> orderedPassengers = new ArrayList<>();
-        for (Passenger passenger : passengers){
+        for (Passenger passenger : passengers) {
             orderedPassengers.add(passenger.getName());
         }
 
@@ -66,9 +66,9 @@ public class Cruise {
         return orderedPassengers;
     }
 
-    public double sumAllBookingsCharged(){
+    public double sumAllBookingsCharged() {
         double sumAllBookingsCharged = 0;
-        for (Passenger passenger: passengers){
+        for (Passenger passenger : passengers) {
             sumAllBookingsCharged += passenger.getCruiseClass().getValue() * this.basicPrice;
         }
         return sumAllBookingsCharged;
@@ -76,7 +76,13 @@ public class Cruise {
 
     public Map<CruiseClass, Integer> countPassengerByClass() {
         Map<CruiseClass, Integer> passengerByClass = new HashMap<>();
-
-        return passengerByClass;
+        for (Passenger passenger : passengers){
+            if(!passengerByClass.containsKey(passenger.getCruiseClass())){
+                passengerByClass.put(passenger.getCruiseClass(), 1);
+            } else {
+                passengerByClass.put(passenger.getCruiseClass(), passengerByClass.get(passenger.getCruiseClass()) + 1);
+            }
+        }
+            return passengerByClass;
     }
 }
