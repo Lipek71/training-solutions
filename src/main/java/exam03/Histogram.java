@@ -8,24 +8,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Histogram {
-    StringBuilder output = new StringBuilder();
-    public String createHistogram(BufferedReader reader) {
-        System.out.println("ide");
-        try (BufferedReader bf = reader) {
-            String line;
-            while ((line = bf.readLine()) != null) {
-                for(int i = 0; i <Integer.parseInt(line); i++ ){
-                    output.append("*");
-                }
-                output.append("\n");
-            }
-        } catch (IOException ioe) {
-            throw new IllegalStateException("Can't open the file!", ioe);
+
+
+    public String createHistogram(BufferedReader reader) throws IOException {
+        StringBuilder output = new StringBuilder();
+        String line;
+        String STAR = "*";
+        while ((line = reader.readLine()) != null) {
+            output.append(STAR.repeat(Integer.parseInt(line))).append("\n");
         }
         return output.toString();
     }
 
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         try (BufferedReader bf = Files.newBufferedReader(Path.of("src/main/resources/histogram.txt"))){
             String line = "";
             StringBuilder output = new StringBuilder();
@@ -42,7 +37,7 @@ public class Histogram {
         }
 
         Histogram histogram = new Histogram();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(Histogram.class.getResourceAsStream("histogram.txt")));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(Histogram.class.getResourceAsStream("/histogram.txt")));
         histogram.createHistogram(reader);
-    }
+    }*/
 }
