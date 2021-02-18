@@ -48,41 +48,63 @@ public class Cruise {
 
     public Passenger findPassengerByName(String name) {
         Passenger foundPassenger = null;
-        for (Passenger passenger : passengers) {
+        /*for (Passenger passenger : passengers) {
             if (passenger.getName().toLowerCase().equals(name.toLowerCase())) {
                 foundPassenger = passenger;
-            }
+            } else {
+            throw new IllegalArgumentException("No found passenger with this name: " + name);
+        }*/
+        foundPassenger= passengers.stream()
+                .filter(passenger -> passenger.getName().equals(name))
+                .collect(Collectors.toList()).get(0);
+        if(foundPassenger!=null){
+            return foundPassenger;
+        } else {
+            throw new IllegalArgumentException("No found passenger with this name: " + name);
         }
-        return foundPassenger;
+        //Ezt inkább nem kellene streammel csinálni, szerintem
     }
 
     public List<String> getPassengerNamesOrdered() {
-        List<String> orderedPassengers = new ArrayList<>();
+        /*List<String> orderedPassengers = new ArrayList<>();
         for (Passenger passenger : passengers) {
             orderedPassengers.add(passenger.getName());
         }
 
-        Collections.sort(orderedPassengers, Collator.getInstance(new Locale("hu", "HU")));
-        return orderedPassengers;
+        Collections.sort(orderedPassengers, Collator.getInstance(new Locale("hu", "HU")));*/
+        return passengers.stream()
+                .map(Passenger::getName)
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     public double sumAllBookingsCharged() {
-        double sumAllBookingsCharged = 0;
+        /*double sumAllBookingsCharged = 0;
         for (Passenger passenger : passengers) {
             sumAllBookingsCharged += passenger.getCruiseClass().getValue() * this.basicPrice;
-        }
-        return sumAllBookingsCharged;
+        }*/
+        return passengers.stream()
+                .mapToDouble(this::getPriceForPassenger)
+                .sum();
     }
 
     public Map<CruiseClass, Integer> countPassengerByClass() {
-        Map<CruiseClass, Integer> passengerByClass = new HashMap<>();
+        /*Map<CruiseClass, Integer> passengerByClass = new TreeMap<>();
         for (Passenger passenger : passengers){
             if(!passengerByClass.containsKey(passenger.getCruiseClass())){
-                passengerByClass.put(passenger.getCruiseClass(), 1);
+                passengerByClass.put(passenger.getCruiseClass(), 1L);
             } else {
                 passengerByClass.put(passenger.getCruiseClass(), passengerByClass.get(passenger.getCruiseClass()) + 1);
             }
-        }
-            return passengerByClass;
+        }*/
+        /*passengerByClass = passengers.stream()
+                .collect(Collectors.groupingBy(Passenger::getCruiseClass
+                        ,TreeMap::new
+                        ,Collectors.counting()));*/ //Ez long-t ad vissza, de szerintem elegánsabb
+        return passengers.stream()
+                .collect(Collectors.toMap(Passenger::getCruiseClass
+                        ,p->1
+                        ,Integer::sum
+                        ,TreeMap::new));
     }
 }
