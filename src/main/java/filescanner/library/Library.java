@@ -11,7 +11,7 @@ public class Library {
         String author;
         String title;
         int yearOfPublish;
-        try (Scanner scanner = new Scanner(Library.class.getResourceAsStream("/books.csv"))) {
+        try (Scanner scanner = new Scanner(Library.class.getResourceAsStream("/books_old.csv"))) {
             scanner.useDelimiter(";|(\r\n)");
             while (scanner.hasNextLine()) {
                 regNum = scanner.next();
