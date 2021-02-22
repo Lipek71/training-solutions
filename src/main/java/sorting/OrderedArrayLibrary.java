@@ -1,14 +1,11 @@
 package sorting;
 
-import java.text.Collator;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Locale;
 
 public class OrderedArrayLibrary {
 
-    private Book[] bookArray;
+    private final Book[] bookArray;
 
     public OrderedArrayLibrary(Book[] bookArray) {
         this.bookArray = bookArray;
@@ -27,11 +24,11 @@ public class OrderedArrayLibrary {
 
     public Book[] sortingByTitle() {
 
-        Comparator<Book> titleComparator = Comparator.comparing(Book::getTitle);
+        //Comparator<Book> titleComparator = Comparator.comparing(Book::getTitle);
 
         Book[] sortedByTitle = new Book[getBookArray().length];
         System.arraycopy(getBookArray(), 0, sortedByTitle, 0, bookArray.length);
-        Arrays.sort(sortedByTitle, titleComparator);
+        Arrays.sort(sortedByTitle, Comparator.comparing(Book::getTitle));
         return sortedByTitle;
     }
 }
